@@ -169,7 +169,7 @@ const Excute = async function(User, TargetUsername, Text, Sleep){
 		const getFollowers = await Followers(doLogin.session, doLogin.account.id);
 		console.log(chalk`{cyan  | Try to Follow, Comment, and Like Followers Target ... \n}`)
 		var TargetResult = await Client.Media.likers(doLogin.session, getTarget);
-		TargetResult = _.chunk(TargetResult, 10);
+		TargetResult = _.chunk(TargetResult, 4);
 		for (var i = 0; i < TargetResult.length; i++) {
 			await Promise.all(TargetResult[i].map(async(akun) => {
 				if (!getFollowers.includes(akun.id) && akun.params.isPrivate === false) {
